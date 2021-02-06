@@ -10,17 +10,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Smartphone extends Product {
-    private String manufacturer;
 
-    public Smartphone(int id, String name, int price, String manufacturer) {
+public class Smartphone extends Product {
+    private String Manufacturer;
+    public Smartphone(int id, String name, int price, String Manufacturer) {
         super(id, name, price);
-        this.manufacturer = manufacturer;
+        this.Manufacturer = Manufacturer;
     }
+
     public boolean matches(String search) {
-        if (super.matches(search)) {
+        if (super.matches(search))
             return true;
-        }
-        return manufacturer.equalsIgnoreCase(search);
+        if (getManufacturer().equalsIgnoreCase(search)) {
+            return true;
+        } else return false;
     }
 }

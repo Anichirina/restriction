@@ -11,14 +11,18 @@ import java.util.Objects;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class Book extends Product {
-    private String author="";
-    public Book(int id, String name, int price, String author) {
+    private String Author="";
+    public Book(int id, String name, int price, String Author) {
         super(id, name, price);
-        this.author = author;
+        this.Author = Author;
     }
+
 
     public boolean matches(String search) {
-        return super.matches(search) || author.equalsIgnoreCase(search);
+        if (super.matches(search))
+            return true;
+        if (getAuthor().equalsIgnoreCase(search)) {
+            return true;
+        } else return false;
     }
-
 }
